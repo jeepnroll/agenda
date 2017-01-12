@@ -1,0 +1,19 @@
+form{
+    margin-bottom: 2em;
+}
+.table-bordered th,
+.table-bordered td{
+    border : 1px solid darkgrey;
+}
+
+.mini-btn{
+    padding : 1%;
+    width: 30px;
+    height: 30px;
+}
+.error{
+    color: red;
+}
+.form-inline .form-group{
+    margin: 1em 0;
+}

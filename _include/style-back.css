@@ -1,0 +1,158 @@
+/*
+    DEBUG
+*/
+pre{
+    background: white !important;
+    padding: 1% !important;
+    font-size: 1em !important;
+    display: none !important;
+}
+/**
+    FORMULAIRE
+ */
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 15vh;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+fieldset{
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    padding: 1%;
+}
+fieldset legend{
+    width: auto !important;
+    padding: 1%;
+}
+.form-footer{
+    text-align: right;
+    margin-top: 2em;
+}
+/**
+    GENERALITE
+ */
+.container-fluid{
+    padding-left: 0;
+}
+/**
+    MENU
+ */
+.menu{
+    background: #333;
+    min-height: 100vh;
+    margin-left: 0;
+    padding: 2% 0;
+    position: static;
+}
+
+.menu h3{
+    text-align: center;
+}
+.module{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 0 1em;
+}
+/**
+    CONTENU
+ */
+.pageContent{
+    padding: 2%;
+
+}
+.pageContent header{
+    margin-bottom: 2%;
+    border-bottom: 2px solid whitesmoke ;
+}
+
+figcaption{
+    text-align: center !important;
+}
+/**
+ * Dialog suppression
+ */
+section{
+    position: relative;
+}
+.not-show{
+    display: none;
+}
+.mask{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.8);
+    position: fixed;
+    top:0;
+    left: 0;
+}
+.dialogue,
+.info{
+    background: #eee;
+    color:  #151515;
+    border-radius: 5px;
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    top: 25vh;
+    left: 25vw;
+}
+.dialogue .dialContainer,
+.info .infoContainer{
+    position: relative;
+    height: 50vh;
+}
+.dialogue header,
+.info header{
+    border-bottom: 2px solid #151515;
+    padding: 2em;
+
+}
+.dialogue .dialContent,
+.info .infoContent{
+    font-size: 1.2em;
+    padding: 1em 2em;
+}
+.dialogue .dialFooter,
+.info .infoFooter{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15%;
+    border-top: 2px solid #151515 ;
+    width: 100%;
+    padding: 1em 2em;
+    align-items: center;
+    text-align: right;
+}
+
