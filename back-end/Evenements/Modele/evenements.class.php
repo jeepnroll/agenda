@@ -46,6 +46,18 @@ class evenements extends ModeleORM
 
 
     /**
+     * @param string $nomAttribut
+     * @return string
+     */
+    public function __get($nomAttribut){
+        if(in_array($nomAttribut, $this->colonnes)){
+            return sizeof($this->events) ? $this->events[$nomAttribut] : "";
+        }
+
+        return false;
+    }
+
+    /**
      * @name select()
      */
     public function select()

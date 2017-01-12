@@ -58,6 +58,9 @@ fieldset legend{
     text-align: right;
     margin-top: 2em;
 }
+.note-editor.note-frame .note-editing-area .note-editable{
+    min-height: 30vh !important;
+}
 /**
     GENERALITE
  */

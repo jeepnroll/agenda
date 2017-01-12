@@ -19,12 +19,12 @@ include('../../_include/head-back.php');
                     <legend>Titre et description</legend>
                     <div class="form-group">
                         <label for="titre">Titre :</label>
-                        <input type="text" class="form-control" name="titre" id="titre" value="<?= isset($evenement->events['titre']) ? $evenement->events['titre'] : "" ?>" />
+                        <input type="text" class="form-control" name="titre" id="titre" value="<?= $evenement->titre ?>" />
                     </div>
                     <div class="form-group">
                         <label for="description">Description :</label>
-                        <textarea class="form-control" name="description" id="myEditor"  rows="15">
-<?= isset($evenement->events['description']) ? $evenement->events['description'] : "Rediger une descrption ..." ?>
+                        <textarea class="form-control textareas" name="description" id="myEditor" rows="15" placeholder="Redigez une description">
+                            <?= isset($evenement->description) ? $evenement->description : "Rédigez une description" ?>
                         </textarea>
                     </div>
                     <div class="form-group">
@@ -34,14 +34,14 @@ include('../../_include/head-back.php');
                 </fieldset>
                 <fieldset>
                     <legend>Illustration</legend>
-                    <?php if($evenement->events['illustration'] != ""){ ?>
+                    <?php if($evenement->illustration != ""){ ?>
                         <div class="row">
                             <div class="col-md-3">
                                 <figure class="thumbnail">
-                                    <img data-src="holder.js/300x300" src="<?= $evenement->events["illustration"] ?>" alt="<?= $evenement->events["photo_titre"] ?>" id="image_<?= $evenement->events["event_id"] ?>" width="100%" height="auto">
+                                    <img data-src="holder.js/300x300" src="<?= $evenement->illustration ?>" alt="<?= $evenement->photo_titre ?>" id="image_<?= $evenement->event_id ?>" width="100%" height="auto">
                                     <figcaption class="caption">
-                                        <h6 class="lead text-center"><?= $evenement->events['photo_titre'] ?></h6>
-                                        <a href="#" title="Supprimer l'illustration" class="btn btn-danger btn-xs imgDelete  text-center" data-id="<?= $evenement->events["event_id"] ?>">
+                                        <h6 class="lead text-center"><?= $evenement->photo_titre ?></h6>
+                                        <a href="#" title="Supprimer l'illustration" class="btn btn-danger btn-xs imgDelete  text-center" data-id="<?= $evenement->event_id ?>">
                                             <i class="fa fa-times"></i>
                                         </a>
                                     </figcaption>
@@ -50,7 +50,7 @@ include('../../_include/head-back.php');
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="programme">Titre de l'illustration :</label>
-                                    <input type="text" class="form-control" name="photo_titre" id="photo_titre" value="<?= isset($evenement->events['photo_titre']) ? $evenement->events['photo_titre'] : "" ?>" />
+                                    <input type="text" class="form-control" name="photo_titre" id="photo_titre" value="<?= $evenement->photo_titre ?>" />
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ include('../../_include/head-back.php');
                         </div>
                     <?php } else { ?>
                         <div class="form-group">
-                            <div id="image-file-<?= $evenement->events["event_id"] ?>"></div>
+                            <div id="image-file-<?= $evenement->event_id ?>"></div>
                             <input type="file" class="form-control" name="illustration" id="illustration" accept=".jpeg,.jpg,.png,.gif"/>
                         </div>
                     <?php }?>
@@ -70,21 +70,21 @@ include('../../_include/head-back.php');
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="date_debut">Date de début :</label>
-                            <input type="date" class="form-control" name="date_debut" id="date_debut" value="<?= isset($evenement->events['date_debut']) ? strtolower($evenement->events['date_debut']) : "" ?>" />
+                            <input type="date" class="form-control" name="date_debut" id="date_debut" value="<?= strtolower($evenement->date_debut) ?>" />
                         </div>
                         <div class="form-group">
                             <label for="date_fin">Date de fin :</label>
-                            <input type="date" class="form-control" name="date_fin" id="date_fin" value="<?= isset($evenement->events['date_fin']) ? strtolower($evenement->events['date_fin']) : "" ?>" />
+                            <input type="date" class="form-control" name="date_fin" id="date_fin" value="<?= strtolower($evenement->date_fin) ?>" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="heure_debut">Heure de début :</label>
-                            <input type="text" class="form-control" name="heure_debut" id="heure_debut" value="<?= isset($evenement->events['heure_debut']) ? $evenement->events['heure_debut'] : "" ?>" />
+                            <input type="text" class="form-control" name="heure_debut" id="heure_debut" value="<?= $evenement->heure_debut ?>" />
                         </div>
                         <div class="form-group">
                             <label for="heure_fin">Heure de fin :</label>
-                            <input type="text" class="form-control" name="heure_fin" id="heure_fin" value="<?= isset($evenement->events['heure_fin']) ? $evenement->events['heure_fin'] : "" ?>" />
+                            <input type="text" class="form-control" name="heure_fin" id="heure_fin" value="<?= $evenement->heure_fin ?>" />
                         </div>
                     </div>
                 </fieldset>
@@ -107,29 +107,29 @@ include('../../_include/head-back.php');
                         <div class="col-lg-6 current">
                             <div class="form-group">
                                 <label for="lieu">Lieu :</label>
-                                <input type="text" class="form-control" name="lieu" id="lieu" value="<?= isset($evenement->events['lieu']) ? $evenement->events['lieu'] : "" ?>" />
+                                <input type="text" class="form-control" name="lieu" id="lieu" value="<?= $evenement->lieu ?>" />
                             </div>
                             <div class="form-group">
                                 <label for="places_disponibles">Places disponibles :</label>
-                                <input type="text" class="form-control" name="places_disponibles" id="places_disponibles" value="<?= isset($evenement->events['places_disponibles']) ?  $evenement->events['places_disponibles'] : ""?>" />
+                                <input type="text" class="form-control" name="places_disponibles" id="places_disponibles" value="<?= $evenement->places_disponibles ?>" />
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="commission">Commission :</label>
-                                <input type="text" class="form-control" name="commission" id="commission" value="<?= isset($evenement->events['commission']) ? $evenement->events['commission'] : "" ?>" />
+                                <input type="text" class="form-control" name="commission" id="commission" value="<?= $evenement->commission ?>" />
                             </div>
                             <div class="form-group">
                                 <label for="ordre_du_jour">Ordre du jour :</label>
-                                <input type="text" class="form-control" name="ordre_du_jour" id="ordre_du_jour" value="<?= isset($evenement->events['ordre_du_jour']) ? $evenement->events['ordre_du_jour'] : "" ?>" />
+                                <input type="text" class="form-control" name="ordre_du_jour" id="ordre_du_jour" value="<?= $evenement->ordre_du_jour ?>" />
                             </div>
                         </div>
                     </div>
                 </fieldset>
                 <div class="form-group form-footer">
                     <button type="submit" class="btn btn-primary btn-lg"><?php echo $btnLabel ; ?></button>
-                    <input type="hidden" name="event_id" value="<?= isset($evenement->events['event_id']) ? $evenement->events['event_id'] : "" ?>" />
+                    <input type="hidden" name="event_id" value="<?= $evenement->event_id ?>" />
                 </div>
             </form>
         </div>
