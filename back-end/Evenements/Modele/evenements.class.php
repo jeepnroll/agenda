@@ -89,6 +89,9 @@ class evenements extends ModeleORM
         }
     }
 
+    /**
+     * @param int $eventID
+     */
     public function selectByID($eventID)
     {
         if($eventID > 0){
@@ -136,6 +139,10 @@ class evenements extends ModeleORM
         }
     }
 
+    /**
+     * @param $postedDatas
+     * @return mixed
+     */
     private function insert($postedDatas)
     {
         $connexion = new dbConnexion();
